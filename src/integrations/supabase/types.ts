@@ -14,16 +14,228 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      announcements: {
+        Row: {
+          active: boolean
+          created_at: string
+          id: string
+          text: string
+        }
+        Insert: {
+          active?: boolean
+          created_at?: string
+          id?: string
+          text: string
+        }
+        Update: {
+          active?: boolean
+          created_at?: string
+          id?: string
+          text?: string
+        }
+        Relationships: []
+      }
+      batches: {
+        Row: {
+          created_at: string
+          early_bird_active: boolean
+          enrollment_link: string
+          exam: string
+          features: string[]
+          id: string
+          name: string
+          price_early_bird: number
+          price_original: number
+        }
+        Insert: {
+          created_at?: string
+          early_bird_active?: boolean
+          enrollment_link: string
+          exam: string
+          features?: string[]
+          id?: string
+          name: string
+          price_early_bird: number
+          price_original: number
+        }
+        Update: {
+          created_at?: string
+          early_bird_active?: boolean
+          enrollment_link?: string
+          exam?: string
+          features?: string[]
+          id?: string
+          name?: string
+          price_early_bird?: number
+          price_original?: number
+        }
+        Relationships: []
+      }
+      leads: {
+        Row: {
+          batch_interest: string | null
+          created_at: string
+          email: string | null
+          id: string
+          name: string
+          phone: string | null
+          status: string
+        }
+        Insert: {
+          batch_interest?: string | null
+          created_at?: string
+          email?: string | null
+          id?: string
+          name: string
+          phone?: string | null
+          status?: string
+        }
+        Update: {
+          batch_interest?: string | null
+          created_at?: string
+          email?: string | null
+          id?: string
+          name?: string
+          phone?: string | null
+          status?: string
+        }
+        Relationships: []
+      }
+      schedule: {
+        Row: {
+          created_at: string
+          date: string
+          end_time: string
+          id: string
+          start_time: string
+          stream: string
+          subject: string
+          topic: string
+        }
+        Insert: {
+          created_at?: string
+          date: string
+          end_time: string
+          id?: string
+          start_time: string
+          stream: string
+          subject: string
+          topic: string
+        }
+        Update: {
+          created_at?: string
+          date?: string
+          end_time?: string
+          id?: string
+          start_time?: string
+          stream?: string
+          subject?: string
+          topic?: string
+        }
+        Relationships: []
+      }
+      settings: {
+        Row: {
+          id: string
+          key: string
+          value: string
+        }
+        Insert: {
+          id?: string
+          key: string
+          value: string
+        }
+        Update: {
+          id?: string
+          key?: string
+          value?: string
+        }
+        Relationships: []
+      }
+      testimonials: {
+        Row: {
+          created_at: string
+          id: string
+          student_name: string | null
+          youtube_url: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          student_name?: string | null
+          youtube_url: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          student_name?: string | null
+          youtube_url?: string
+        }
+        Relationships: []
+      }
+      toppers: {
+        Row: {
+          created_at: string
+          id: string
+          name: string
+          photo_url: string | null
+          rank: string
+          subject: string
+          university: string | null
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          name: string
+          photo_url?: string | null
+          rank: string
+          subject: string
+          university?: string | null
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          name?: string
+          photo_url?: string | null
+          rank?: string
+          subject?: string
+          university?: string | null
+        }
+        Relationships: []
+      }
+      user_roles: {
+        Row: {
+          id: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Insert: {
+          id?: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Update: {
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      has_role: {
+        Args: {
+          _role: Database["public"]["Enums"]["app_role"]
+          _user_id: string
+        }
+        Returns: boolean
+      }
     }
     Enums: {
-      [_ in never]: never
+      app_role: "admin" | "user"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +362,8 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      app_role: ["admin", "user"],
+    },
   },
 } as const
