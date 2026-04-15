@@ -38,10 +38,10 @@ export default function AnimatedCounter({ end, suffix = "", prefix = "", label, 
       transition={{ duration: 0.5 }}
       className="text-center"
     >
-      <div className="text-3xl sm:text-4xl font-black text-coral">
+      <div className="text-3xl sm:text-4xl font-black text-primary">
         {prefix}{count}{suffix}
       </div>
-      <div className="text-sm text-primary-foreground/70 mt-1 font-medium">{label}</div>
+      <div className="text-sm text-muted-foreground mt-1 font-medium">{label}</div>
     </motion.div>
   );
 }
