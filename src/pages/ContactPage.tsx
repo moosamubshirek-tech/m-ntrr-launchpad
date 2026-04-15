@@ -3,6 +3,7 @@ import ScrollReveal from "@/components/ScrollReveal";
 import { supabase } from "@/integrations/supabase/client";
 import { Phone, MapPin, MessageCircle } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
+import WavyDivider from "@/components/WavyDivider";
 
 export default function ContactPage() {
   const [form, setForm] = useState({ name: "", email: "", phone: "", batch_interest: "CUET", message: "" });
@@ -29,17 +30,20 @@ export default function ContactPage() {
 
   return (
     <div className="pt-24">
-      <section className="bg-navy py-20">
-        <div className="container mx-auto px-4 text-center">
+      <section className="bg-lavender py-20 relative overflow-hidden">
+        <div className="blob-indigo w-[300px] h-[300px] -top-10 -left-10" />
+        <div className="blob-rose w-[200px] h-[200px] bottom-0 right-10" />
+        <div className="container mx-auto px-4 text-center relative z-10">
           <ScrollReveal>
-            <h1 className="text-4xl sm:text-5xl font-black text-primary-foreground mb-4">
-              Get in <span className="text-coral">Touch</span>
+            <h1 className="text-4xl sm:text-5xl font-black text-foreground mb-4">
+              Get in <span className="squiggly-underline text-accent">Touch</span>
             </h1>
-            <p className="text-primary-foreground/60 max-w-xl mx-auto">
+            <p className="text-muted-foreground max-w-xl mx-auto">
               Have questions? Reach out and we'll help you get started
             </p>
           </ScrollReveal>
         </div>
+        <WavyDivider nextBg="white" />
       </section>
 
       <section className="py-16 bg-background">
@@ -51,26 +55,26 @@ export default function ContactPage() {
                 <div>
                   <h3 className="font-bold text-lg mb-4">Contact Details</h3>
                   <div className="space-y-4">
-                    <a href="tel:+917909228688" className="flex items-center gap-3 text-muted-foreground hover:text-coral transition-colors">
-                      <Phone size={18} className="text-coral" /> 7909 228 688
+                    <a href="tel:+917909228688" className="flex items-center gap-3 text-muted-foreground hover:text-accent transition-colors">
+                      <Phone size={18} className="text-accent" /> 7909 228 688
                     </a>
                     <div className="flex items-start gap-3 text-muted-foreground">
-                      <MapPin size={18} className="text-coral mt-0.5 shrink-0" />
+                      <MapPin size={18} className="text-accent mt-0.5 shrink-0" />
                       Nas Arcade, Kurial Lane, Cherooty Rd, Mananchira, Kozhikode, Kerala 673001
                     </div>
                     <a
                       href="https://wa.me/917909228688"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-3 text-muted-foreground hover:text-coral transition-colors"
+                      className="flex items-center gap-3 text-muted-foreground hover:text-accent transition-colors"
                     >
-                      <MessageCircle size={18} className="text-coral" /> WhatsApp Us
+                      <MessageCircle size={18} className="text-accent" /> WhatsApp Us
                     </a>
                   </div>
                 </div>
 
                 {/* Map */}
-                <div className="rounded-2xl overflow-hidden border border-border h-64">
+                <div className="rounded-3xl overflow-hidden border-2 border-border h-64" style={{ boxShadow: '4px 4px 0px hsl(var(--foreground) / 0.08)' }}>
                   <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3913.174!2d75.7804!3d11.2588!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTHCsDE1JzMxLjciTiA3NcKwNDYnNDkuNCJF!5e0!3m2!1sen!2sin!4v1"
                     width="100%"
@@ -86,7 +90,7 @@ export default function ContactPage() {
 
             {/* Form */}
             <ScrollReveal delay={0.15}>
-              <form onSubmit={handleSubmit} className="bg-card border border-border rounded-2xl p-6 sm:p-8 space-y-4">
+              <form onSubmit={handleSubmit} className="bg-card border-t-[4px] border-primary rounded-3xl p-6 sm:p-8 space-y-4" style={{ boxShadow: '5px 5px 0px hsl(var(--foreground) / 0.08)' }}>
                 <h3 className="font-bold text-lg mb-2">Send us a message</h3>
                 <input
                   type="text"
@@ -94,26 +98,26 @@ export default function ContactPage() {
                   required
                   value={form.name}
                   onChange={(e) => setForm({ ...form, name: e.target.value })}
-                  className="w-full border border-border rounded-xl px-4 py-3 text-sm bg-background focus:border-coral focus:outline-none transition-colors"
+                  className="w-full border-2 border-border rounded-2xl px-4 py-3 text-sm bg-background focus:border-primary focus:outline-none transition-colors"
                 />
                 <input
                   type="email"
                   placeholder="Email"
                   value={form.email}
                   onChange={(e) => setForm({ ...form, email: e.target.value })}
-                  className="w-full border border-border rounded-xl px-4 py-3 text-sm bg-background focus:border-coral focus:outline-none transition-colors"
+                  className="w-full border-2 border-border rounded-2xl px-4 py-3 text-sm bg-background focus:border-primary focus:outline-none transition-colors"
                 />
                 <input
                   type="tel"
                   placeholder="Phone"
                   value={form.phone}
                   onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                  className="w-full border border-border rounded-xl px-4 py-3 text-sm bg-background focus:border-coral focus:outline-none transition-colors"
+                  className="w-full border-2 border-border rounded-2xl px-4 py-3 text-sm bg-background focus:border-primary focus:outline-none transition-colors"
                 />
                 <select
                   value={form.batch_interest}
                   onChange={(e) => setForm({ ...form, batch_interest: e.target.value })}
-                  className="w-full border border-border rounded-xl px-4 py-3 text-sm bg-background focus:border-coral focus:outline-none transition-colors"
+                  className="w-full border-2 border-border rounded-2xl px-4 py-3 text-sm bg-background focus:border-primary focus:outline-none transition-colors"
                 >
                   <option value="CUET">CUET UG</option>
                   <option value="NCET">NCET</option>
@@ -122,7 +126,7 @@ export default function ContactPage() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full bg-coral text-accent-foreground py-3 rounded-full font-bold hover:bg-coral-light transition-colors disabled:opacity-50"
+                  className="w-full bg-accent text-accent-foreground py-3 rounded-full font-bold btn-cartoon hover:bg-rose-light transition-colors disabled:opacity-50"
                 >
                   {loading ? "Sending..." : "Send Inquiry"}
                 </button>

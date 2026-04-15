@@ -31,8 +31,8 @@ export default function Navbar() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-navy/95 backdrop-blur-md py-2 shadow-lg"
-          : "bg-transparent py-4"
+          ? "bg-indigo/95 backdrop-blur-md py-2 shadow-lg"
+          : "bg-indigo py-4"
       }`}
     >
       <div className="container mx-auto flex items-center justify-between px-4">
@@ -40,7 +40,7 @@ export default function Navbar() {
           <span className="text-2xl font-black tracking-tight text-primary-foreground">
             mêntrr
           </span>
-          <span className="text-coral text-2xl font-black">.</span>
+          <span className="text-rose text-2xl font-black">.</span>
         </Link>
 
         {/* Desktop */}
@@ -49,10 +49,10 @@ export default function Navbar() {
             <Link
               key={l.path}
               to={l.path}
-              className={`text-sm font-semibold transition-colors hover:text-coral ${
+              className={`text-sm font-semibold transition-colors hover:text-rose-light ${
                 location.pathname === l.path
-                  ? "text-coral"
-                  : "text-primary-foreground/80"
+                  ? "text-primary-foreground"
+                  : "text-primary-foreground/70"
               }`}
             >
               {l.label}
@@ -62,7 +62,7 @@ export default function Navbar() {
             href={ENROLL_LINK}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-coral text-primary-foreground px-5 py-2 rounded-full text-sm font-bold animate-pulse-glow hover:bg-coral-light transition-colors"
+            className="bg-rose text-primary-foreground px-5 py-2 rounded-full text-sm font-bold border-2 border-primary-foreground/20 hover:bg-rose-light transition-all animate-pulse-glow"
           >
             Enroll Now
           </a>
@@ -84,7 +84,7 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-navy/98 backdrop-blur-md border-t border-primary-foreground/10"
+            className="md:hidden bg-indigo/98 backdrop-blur-md border-t border-primary-foreground/10"
           >
             <div className="container mx-auto px-4 py-4 flex flex-col gap-3">
               {navLinks.map((l) => (
@@ -93,8 +93,8 @@ export default function Navbar() {
                   to={l.path}
                   className={`text-sm font-semibold py-2 ${
                     location.pathname === l.path
-                      ? "text-coral"
-                      : "text-primary-foreground/80"
+                      ? "text-primary-foreground"
+                      : "text-primary-foreground/70"
                   }`}
                 >
                   {l.label}
@@ -104,7 +104,7 @@ export default function Navbar() {
                 href={ENROLL_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-coral text-primary-foreground px-5 py-2.5 rounded-full text-sm font-bold text-center"
+                className="bg-rose text-primary-foreground px-5 py-2.5 rounded-full text-sm font-bold text-center"
               >
                 Enroll Now
               </a>

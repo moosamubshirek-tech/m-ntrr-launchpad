@@ -50,15 +50,18 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        navy: {
-          DEFAULT: "hsl(var(--navy))",
-          light: "hsl(var(--navy-light))",
+        indigo: {
+          DEFAULT: "hsl(var(--indigo))",
+          light: "hsl(var(--indigo-light))",
+          dark: "hsl(var(--indigo-dark))",
         },
-        coral: {
-          DEFAULT: "hsl(var(--coral))",
-          light: "hsl(var(--coral-light))",
-          dark: "hsl(var(--coral-dark))",
+        rose: {
+          DEFAULT: "hsl(var(--rose))",
+          light: "hsl(var(--rose-light))",
+          dark: "hsl(var(--rose-dark))",
         },
+        lavender: "hsl(var(--lavender))",
+        blush: "hsl(var(--blush))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
@@ -74,6 +77,9 @@ export default {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+        xl: "1.25rem",
+        "2xl": "1.5rem",
+        "3xl": "20px",
       },
       keyframes: {
         "accordion-down": {
@@ -93,8 +99,8 @@ export default {
           "50%": { transform: "translateY(-20px)" },
         },
         "pulse-glow": {
-          "0%, 100%": { boxShadow: "0 0 10px hsl(var(--coral) / 0.3)" },
-          "50%": { boxShadow: "0 0 25px hsl(var(--coral) / 0.6)" },
+          "0%, 100%": { boxShadow: "0 0 10px hsl(var(--rose) / 0.3)" },
+          "50%": { boxShadow: "0 0 25px hsl(var(--rose) / 0.6)" },
         },
         "scroll-left": {
           "0%": { transform: "translateX(0)" },
