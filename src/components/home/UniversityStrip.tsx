@@ -1,4 +1,5 @@
 import ScrollReveal from "@/components/ScrollReveal";
+import WavyDivider from "@/components/WavyDivider";
 
 const universities = [
   "Delhi University", "JNU", "AMU", "BHU", "Jamia Millia",
@@ -8,9 +9,9 @@ const universities = [
 
 export default function UniversityStrip() {
   return (
-    <section className="py-14 bg-navy overflow-hidden">
+    <section className="py-14 bg-background overflow-hidden relative">
       <ScrollReveal>
-        <h3 className="text-center text-primary-foreground/50 text-xs font-bold tracking-widest uppercase mb-8">
+        <h3 className="text-center text-muted-foreground text-xs font-bold tracking-widest uppercase mb-8">
           Top Universities Accepting CUET Scores
         </h3>
       </ScrollReveal>
@@ -19,12 +20,15 @@ export default function UniversityStrip() {
           {[...universities, ...universities].map((u, i) => (
             <span
               key={i}
-              className="text-primary-foreground/20 font-bold text-lg sm:text-xl px-4 shrink-0"
+              className="text-primary/20 font-bold text-lg sm:text-xl px-4 shrink-0"
             >
               {u}
             </span>
           ))}
         </div>
+      </div>
+      <div className="mt-10">
+        <WavyDivider nextBg="lavender" />
       </div>
     </section>
   );

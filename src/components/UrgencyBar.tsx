@@ -16,9 +16,22 @@ export default function UrgencyBar() {
       });
   }, []);
 
+  const items = [
+    `🔥 ${text}`,
+    `⚡ ${text}`,
+    `🎯 ${text}`,
+    `🔥 ${text}`,
+    `⚡ ${text}`,
+    `🎯 ${text}`,
+  ];
+
   return (
-    <div className="bg-coral text-primary-foreground text-center text-xs sm:text-sm font-bold py-2 px-4 z-[60] relative">
-      {text}
+    <div className="bg-rose text-primary-foreground text-xs sm:text-sm font-bold py-2 z-[60] relative overflow-hidden">
+      <div className="flex whitespace-nowrap animate-ticker">
+        {items.map((item, i) => (
+          <span key={i} className="mx-8 shrink-0">{item}</span>
+        ))}
+      </div>
     </div>
   );
 }

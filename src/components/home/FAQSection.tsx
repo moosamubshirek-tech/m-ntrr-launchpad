@@ -1,10 +1,7 @@
+import { useState } from "react";
 import ScrollReveal from "@/components/ScrollReveal";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
+import { motion, AnimatePresence } from "framer-motion";
+import { Plus, Minus } from "lucide-react";
 
 const faqs = [
   {
@@ -38,32 +35,53 @@ const faqs = [
 ];
 
 export default function FAQSection() {
+  const [openIdx, setOpenIdx] = useState<number | null>(null);
+
   return (
-    <section className="py-20 bg-background">
-      <div className="container mx-auto px-4 max-w-2xl">
+    <section className="py-20 bg-lavender relative">
+      <div className="section-number">07</div>
+      <div className="container mx-auto px-4 max-w-2xl relative z-10">
         <ScrollReveal>
           <h2 className="text-3xl sm:text-4xl font-black text-center mb-10">
-            Frequently Asked <span className="text-coral">Questions</span>
+            Frequently Asked <span className="squiggly-underline text-primary">Questions</span>
           </h2>
         </ScrollReveal>
 
         <ScrollReveal delay={0.1}>
-          <Accordion type="single" collapsible className="space-y-3">
+          <div className="space-y-3">
             {faqs.map((faq, i) => (
-              <AccordionItem
+              <div
                 key={i}
-                value={`faq-${i}`}
-                className="border border-border rounded-xl px-5 data-[state=open]:border-coral/30 transition-colors"
+                className="bg-background border-2 border-border rounded-3xl overflow-hidden transition-all"
+                style={{ boxShadow: openIdx === i ? '4px 4px 0px hsl(var(--primary) / 0.2)' : '3px 3px 0px hsl(var(--foreground) / 0.05)' }}
               >
-                <AccordionTrigger className="text-left font-semibold text-sm sm:text-base hover:no-underline hover:text-coral transition-colors">
-                  {faq.q}
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground text-sm leading-relaxed">
-                  {faq.a}
-                </AccordionContent>
-              </AccordionItem>
+                <button
+                  onClick={() => setOpenIdx(openIdx === i ? null : i)}
+                  className="w-full flex items-center justify-between px-5 py-4 text-left font-semibold text-sm sm:text-base hover:text-primary transition-colors"
+                >
+                  <span>{faq.q}</span>
+                  <span className={`w-7 h-7 rounded-full flex items-center justify-center shrink-0 ml-3 transition-colors ${openIdx === i ? 'bg-primary text-primary-foreground' : 'bg-primary/10 text-primary'}`}>
+                    {openIdx === i ? <Minus size={16} /> : <Plus size={16} />}
+                  </span>
+                </button>
+                <AnimatePresence>
+                  {openIdx === i && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.2 }}
+                      className="overflow-hidden"
+                    >
+                      <div className="px-5 pb-4 text-muted-foreground text-sm leading-relaxed">
+                        {faq.a}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
             ))}
-          </Accordion>
+          </div>
         </ScrollReveal>
       </div>
     </section>
