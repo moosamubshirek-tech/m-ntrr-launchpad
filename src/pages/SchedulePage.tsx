@@ -3,27 +3,67 @@ import { supabase } from "@/integrations/supabase/client";
 import ScrollReveal from "@/components/ScrollReveal";
 import type { Tables } from "@/integrations/supabase/types";
 import WavyDivider from "@/components/WavyDivider";
+import { Lock, MessageCircle } from "lucide-react";
 
 const streams = ["Science", "Commerce", "Humanities", "General"];
 
 export default function SchedulePage() {
   const [schedule, setSchedule] = useState<Tables<"schedule">[]>([]);
   const [activeStream, setActiveStream] = useState("Science");
+  const [authChecked, setAuthChecked] = useState(false);
+  const [isAuthed, setIsAuthed] = useState(false);
 
   const today = new Date().toISOString().split("T")[0];
 
   useEffect(() => {
-    supabase
-      .from("schedule")
-      .select("*")
-      .order("date")
-      .order("start_time")
-      .then(({ data }) => {
-        if (data) setSchedule(data);
-      });
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setIsAuthed(!!session);
+      setAuthChecked(true);
+      if (session) {
+        supabase
+          .from("schedule")
+          .select("*")
+          .order("date")
+          .order("start_time")
+          .then(({ data }) => {
+            if (data) setSchedule(data);
+          });
+      }
+    });
   }, []);
 
   const filtered = schedule.filter((s) => s.stream === activeStream);
+
+  if (!authChecked) {
+    return <div className="pt-32 text-center text-muted-foreground">Loading...</div>;
+  }
+
+  if (!isAuthed) {
+    return (
+      <div className="pt-32 pb-20 min-h-[80vh] bg-lavender flex items-center justify-center px-4">
+        <div
+          className="bg-background border-t-[4px] border-primary rounded-3xl p-8 sm:p-10 max-w-md w-full text-center"
+          style={{ boxShadow: '5px 5px 0px hsl(var(--foreground) / 0.08)' }}
+        >
+          <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-5">
+            <Lock className="text-primary" size={28} />
+          </div>
+          <h2 className="text-xl font-black mb-2">Enrolled Students Only</h2>
+          <p className="text-muted-foreground text-sm mb-6">
+            This page is for enrolled students only. Contact us on WhatsApp to learn more about our batches.
+          </p>
+          <a
+            href="https://wa.me/917909228688"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 bg-[#25D366] text-white px-6 py-3 rounded-full font-bold btn-cartoon hover:opacity-90"
+          >
+            <MessageCircle size={18} fill="currentColor" /> Contact on WhatsApp
+          </a>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="pt-24">
@@ -42,7 +82,6 @@ export default function SchedulePage() {
 
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4 max-w-4xl">
-          {/* Stream tabs - pill shaped */}
           <div className="flex flex-wrap gap-2 justify-center mb-10">
             {streams.map((s) => (
               <button

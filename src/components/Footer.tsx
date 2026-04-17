@@ -1,9 +1,10 @@
 import { Phone, MapPin, Globe, Instagram, Youtube } from "lucide-react";
 import { Link } from "react-router-dom";
-
-const ENROLL_LINK = "https://docs.google.com/forms/d/e/1FAIpQLSd8Xx1fSnjswWCsSNVljC5x4_Bu2Hk5XrXUcfJ-zMlrj5QgOg/viewform";
+import { useSetting } from "@/hooks/useSettings";
 
 export default function Footer() {
+  const enrollLink = useSetting("enrollment_link");
+
   return (
     <footer className="bg-indigo text-primary-foreground/80 pt-16 pb-8">
       <div className="container mx-auto px-4">
@@ -23,7 +24,6 @@ export default function Footer() {
             <div className="flex flex-col gap-2 text-sm">
               <Link to="/about" className="hover:text-rose transition-colors">About</Link>
               <Link to="/courses" className="hover:text-rose transition-colors">Courses</Link>
-              <Link to="/schedule" className="hover:text-rose transition-colors">Schedule</Link>
               <Link to="/results" className="hover:text-rose transition-colors">Results</Link>
               <Link to="/contact" className="hover:text-rose transition-colors">Contact</Link>
             </div>
@@ -56,7 +56,7 @@ export default function Footer() {
               </a>
             </div>
             <a
-              href={ENROLL_LINK}
+              href={enrollLink}
               target="_blank"
               rel="noopener noreferrer"
               className="mt-6 inline-block bg-rose text-primary-foreground px-6 py-2.5 rounded-full text-sm font-bold btn-cartoon border-primary-foreground/30 hover:bg-rose-light transition-colors"

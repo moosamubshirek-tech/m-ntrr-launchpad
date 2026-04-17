@@ -90,9 +90,18 @@ function TopperCard({ topper, delay, index }: { topper: Tables<"toppers">; delay
             <div className="ribbon-badge text-xs">⭐ AIR 1</div>
           </div>
         )}
-        <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4 border-2 border-primary/20">
-          <Trophy className="text-primary" size={28} />
-        </div>
+        {topper.photo_url ? (
+          <img
+            src={topper.photo_url}
+            alt={topper.name}
+            className="w-16 h-16 rounded-full object-cover mx-auto mb-4 border-2 border-primary/30"
+            loading="lazy"
+          />
+        ) : (
+          <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4 border-2 border-primary/20">
+            <Trophy className="text-primary" size={28} />
+          </div>
+        )}
         <h3 className="font-bold text-lg">{topper.name}</h3>
         <p className="text-accent font-bold text-sm">{topper.rank} — {topper.subject}</p>
         {topper.university && (
