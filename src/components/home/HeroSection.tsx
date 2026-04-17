@@ -47,9 +47,9 @@ export default function HeroSection() {
   return (
     <section className="relative min-h-screen bg-lavender flex items-center justify-center overflow-hidden pt-20">
       {/* Blob shapes */}
-      <div className="blob-indigo w-[400px] h-[400px] -top-20 -left-20" />
-      <div className="blob-rose w-[350px] h-[350px] top-40 -right-20" />
-      <div className="blob-indigo w-[250px] h-[250px] bottom-20 left-1/4" />
+      <div className="blob-indigo w-[320px] h-[320px] -top-16 -left-16" />
+      <div className="blob-rose w-[280px] h-[280px] top-40 -right-16" />
+      <div className="blob-indigo w-[200px] h-[200px] bottom-20 left-1/4" />
 
       {/* Floating illustrated icons */}
       {floatingIcons.map((icon, i) => (
