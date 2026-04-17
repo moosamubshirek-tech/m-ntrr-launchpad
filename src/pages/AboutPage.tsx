@@ -3,14 +3,6 @@ import AnimatedCounter from "@/components/AnimatedCounter";
 import { Target, Heart, Lightbulb } from "lucide-react";
 import WavyDivider from "@/components/WavyDivider";
 
-const milestones = [
-  { year: "2023", title: "Founded in Kozhikode", desc: "mêntrr. was born with a mission to make CUET coaching accessible" },
-  { year: "2024", title: "First AIR 1 — Niveda MR", desc: "Our student secured All India Rank 1 in English" },
-  { year: "2024", title: "100+ Admissions", desc: "Students secured seats at DU, JNU, BHU and more" },
-  { year: "2025", title: "NCET Batch Launch", desc: "Expanded to cover NCET alongside CUET coaching" },
-  { year: "2026", title: "Crash Batches Open", desc: "Intensive crash courses for CUET & NCET 2026" },
-];
-
 export default function AboutPage() {
   return (
     <div className="pt-24">
@@ -24,7 +16,7 @@ export default function AboutPage() {
               About <span className="squiggly-underline text-accent">mêntrr.</span>
             </h1>
             <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-              Founded in 2023 in Kozhikode, Kerala — we're on a mission to help every student crack CUET and get into their dream university.
+              Kerala's No.1 CUET & NCET coaching platform — built for students who want top central university admissions.
             </p>
           </ScrollReveal>
         </div>
@@ -37,7 +29,7 @@ export default function AboutPage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl mx-auto">
             <AnimatedCounter end={100} suffix="+" label="Admissions" />
             <AnimatedCounter end={2} label="AIR 1s" />
-            <AnimatedCounter end={2023} label="Founded" duration={1.5} />
+            <AnimatedCounter end={500} suffix="+" label="Students Mentored" />
             <AnimatedCounter end={45} suffix="+" label="Universities" />
           </div>
         </div>
@@ -61,33 +53,6 @@ export default function AboutPage() {
                   <item.icon className="mx-auto mb-3 text-accent" size={32} />
                   <h3 className="font-bold text-foreground mb-2">{item.title}</h3>
                   <p className="text-muted-foreground text-sm">{item.desc}</p>
-                </div>
-              </ScrollReveal>
-            ))}
-          </div>
-        </div>
-        <div className="mt-10">
-          <WavyDivider nextBg="white" />
-        </div>
-      </section>
-
-      {/* Timeline */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-4 max-w-2xl">
-          <ScrollReveal>
-            <h2 className="text-3xl font-black text-center mb-12">
-              Our <span className="squiggly-underline text-primary">Journey</span>
-            </h2>
-          </ScrollReveal>
-          <div className="relative">
-            <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-primary/20" />
-            {milestones.map((m, i) => (
-              <ScrollReveal key={i} delay={i * 0.1}>
-                <div className="relative pl-12 pb-10">
-                  <div className="absolute left-2.5 top-1 w-3 h-3 rounded-full bg-accent" />
-                  <span className="text-accent font-bold text-sm">{m.year}</span>
-                  <h3 className="font-bold mt-1">{m.title}</h3>
-                  <p className="text-muted-foreground text-sm mt-1">{m.desc}</p>
                 </div>
               </ScrollReveal>
             ))}

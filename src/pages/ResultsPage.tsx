@@ -12,7 +12,7 @@ export default function ResultsPage() {
 
   useEffect(() => {
     supabase.from("toppers").select("*").then(({ data }) => { if (data) setToppers(data); });
-    supabase.from("testimonials").select("*").then(({ data }) => { if (data) setTestimonials(data); });
+    supabase.from("testimonials").select("*").order("display_order", { ascending: true }).then(({ data }) => { if (data) setTestimonials(data); });
   }, []);
 
   return (
@@ -54,9 +54,18 @@ export default function ResultsPage() {
                       <div className="ribbon-badge text-xs">⭐ AIR 1</div>
                     </div>
                   )}
-                  <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4 border-2 border-primary/20">
-                    <Trophy className="text-primary" size={28} />
-                  </div>
+                  {t.photo_url ? (
+                    <img
+                      src={t.photo_url}
+                      alt={t.name}
+                      className="w-16 h-16 rounded-full object-cover mx-auto mb-4 border-2 border-primary/30"
+                      loading="lazy"
+                    />
+                  ) : (
+                    <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4 border-2 border-primary/20">
+                      <Trophy className="text-primary" size={28} />
+                    </div>
+                  )}
                   <h3 className="font-bold text-lg">{t.name}</h3>
                   <p className="text-accent font-bold text-sm">{t.rank} — {t.subject}</p>
                   {t.university && <p className="text-muted-foreground text-xs mt-1">{t.university}</p>}

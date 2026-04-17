@@ -2,8 +2,7 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import WavyDivider from "@/components/WavyDivider";
-
-const ENROLL_LINK = "https://docs.google.com/forms/d/e/1FAIpQLSd8Xx1fSnjswWCsSNVljC5x4_Bu2Hk5XrXUcfJ-zMlrj5QgOg/viewform";
+import { useSetting } from "@/hooks/useSettings";
 
 const floatingIcons = ["📚", "✏️", "⭐", "🎓", "🔬", "📐", "🧪", "🌟", "📖", "🎯"];
 
@@ -44,6 +43,12 @@ function CountdownTimer() {
 }
 
 export default function HeroSection() {
+  const enrollLink = useSetting("enrollment_link");
+
+  const scrollToDemo = () => {
+    document.getElementById("free-demo")?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <section className="relative min-h-screen bg-lavender flex items-center justify-center overflow-hidden pt-20">
       {/* Blob shapes */}
@@ -83,9 +88,8 @@ export default function HeroSection() {
           transition={{ duration: 0.7 }}
           className="text-4xl sm:text-5xl md:text-7xl font-black text-foreground leading-tight mb-4"
         >
-          One Exam.{" "}
-          <span className="squiggly-underline">Your Dream</span>{" "}
-          <span className="text-gradient">University.</span>
+          Kerala's <span className="squiggly-underline">No.1</span>{" "}
+          <span className="text-gradient">CUET Platform.</span>
         </motion.h1>
 
         <motion.p
@@ -94,7 +98,7 @@ export default function HeroSection() {
           transition={{ duration: 0.7, delay: 0.2 }}
           className="text-foreground/60 text-base sm:text-lg md:text-xl max-w-2xl mx-auto mb-8"
         >
-          Kerala's most result-driven CUET & NCET coaching platform
+          Live classes · Expert faculty · Proven results — built for Kerala students
         </motion.p>
 
         <motion.div
@@ -105,17 +109,17 @@ export default function HeroSection() {
         >
           <AnimatedCounter end={100} suffix="+" label="Admissions" />
           <AnimatedCounter end={2} label="AIR 1s" />
-          <AnimatedCounter end={2023} label="Founded" prefix="" duration={1.5} />
+          <AnimatedCounter end={500} suffix="+" label="Students" />
         </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.5 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center mb-12"
+          className="flex flex-col sm:flex-row flex-wrap gap-4 justify-center mb-12"
         >
           <a
-            href={ENROLL_LINK}
+            href={enrollLink}
             target="_blank"
             rel="noopener noreferrer"
             className="bg-accent text-accent-foreground px-8 py-3.5 rounded-full text-base font-bold btn-cartoon hover:bg-rose-light transition-all"
@@ -123,13 +127,19 @@ export default function HeroSection() {
             Join CUET Batch
           </a>
           <a
-            href={ENROLL_LINK}
+            href={enrollLink}
             target="_blank"
             rel="noopener noreferrer"
             className="bg-primary text-primary-foreground px-8 py-3.5 rounded-full text-base font-bold btn-cartoon hover:bg-indigo-light transition-all"
           >
             Join NCET Batch
           </a>
+          <button
+            onClick={scrollToDemo}
+            className="border-2 border-foreground/20 bg-background/50 text-foreground px-8 py-3.5 rounded-full text-base font-bold hover:bg-background transition-all"
+          >
+            Watch Free Demo Class
+          </button>
         </motion.div>
 
         <motion.div

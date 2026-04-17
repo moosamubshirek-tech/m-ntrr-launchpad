@@ -2,22 +2,21 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useSetting } from "@/hooks/useSettings";
 
 const navLinks = [
   { label: "Home", path: "/" },
   { label: "About", path: "/about" },
   { label: "Courses", path: "/courses" },
-  { label: "Schedule", path: "/schedule" },
   { label: "Results", path: "/results" },
   { label: "Contact", path: "/contact" },
 ];
-
-const ENROLL_LINK = "https://docs.google.com/forms/d/e/1FAIpQLSd8Xx1fSnjswWCsSNVljC5x4_Bu2Hk5XrXUcfJ-zMlrj5QgOg/viewform";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const location = useLocation();
+  const enrollLink = useSetting("enrollment_link");
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -59,7 +58,7 @@ export default function Navbar() {
             </Link>
           ))}
           <a
-            href={ENROLL_LINK}
+            href={enrollLink}
             target="_blank"
             rel="noopener noreferrer"
             className="bg-rose text-primary-foreground px-5 py-2 rounded-full text-sm font-bold border-2 border-primary-foreground/20 hover:bg-rose-light transition-all animate-pulse-glow"
@@ -101,7 +100,7 @@ export default function Navbar() {
                 </Link>
               ))}
               <a
-                href={ENROLL_LINK}
+                href={enrollLink}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-rose text-primary-foreground px-5 py-2.5 rounded-full text-sm font-bold text-center"

@@ -4,6 +4,7 @@ import ScrollReveal from "@/components/ScrollReveal";
 import { Check, Flame } from "lucide-react";
 import type { Tables } from "@/integrations/supabase/types";
 import WavyDivider from "@/components/WavyDivider";
+import { useSetting } from "@/hooks/useSettings";
 
 const subjects: Record<string, string[]> = {
   Science: ["Physics", "Chemistry", "Biology", "Mathematics", "Computer Science"],
@@ -14,6 +15,7 @@ const subjects: Record<string, string[]> = {
 export default function CoursesPage() {
   const [batches, setBatches] = useState<Tables<"batches">[]>([]);
   const [showEarly, setShowEarly] = useState(true);
+  const fallbackEnroll = useSetting("enrollment_link");
 
   useEffect(() => {
     supabase.from("batches").select("*").then(({ data }) => {
@@ -38,7 +40,6 @@ export default function CoursesPage() {
         <WavyDivider nextBg="white" />
       </section>
 
-      {/* Pricing toggle */}
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-center gap-4 mb-12">
@@ -76,7 +77,7 @@ export default function CoursesPage() {
                     ))}
                   </ul>
                   <a
-                    href={batch.enrollment_link}
+                    href={batch.enrollment_link || fallbackEnroll}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="block text-center bg-accent text-accent-foreground py-3 rounded-full font-bold btn-cartoon hover:bg-rose-light transition-colors"
@@ -91,7 +92,6 @@ export default function CoursesPage() {
         <WavyDivider nextBg="lavender" />
       </section>
 
-      {/* Subjects */}
       <section className="py-16 bg-lavender relative">
         <div className="section-number">02</div>
         <div className="container mx-auto px-4 max-w-4xl relative z-10">
