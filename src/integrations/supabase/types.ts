@@ -46,6 +46,8 @@ export type Database = {
           name: string
           price_early_bird: number
           price_original: number
+          seats_filled: number
+          seats_total: number
         }
         Insert: {
           created_at?: string
@@ -57,6 +59,8 @@ export type Database = {
           name: string
           price_early_bird: number
           price_original: number
+          seats_filled?: number
+          seats_total?: number
         }
         Update: {
           created_at?: string
@@ -68,6 +72,8 @@ export type Database = {
           name?: string
           price_early_bird?: number
           price_original?: number
+          seats_filled?: number
+          seats_total?: number
         }
         Relationships: []
       }
@@ -78,6 +84,7 @@ export type Database = {
           email: string | null
           id: string
           name: string
+          notes: string | null
           phone: string | null
           status: string
         }
@@ -87,6 +94,7 @@ export type Database = {
           email?: string | null
           id?: string
           name: string
+          notes?: string | null
           phone?: string | null
           status?: string
         }
@@ -96,6 +104,7 @@ export type Database = {
           email?: string | null
           id?: string
           name?: string
+          notes?: string | null
           phone?: string | null
           status?: string
         }
@@ -155,18 +164,21 @@ export type Database = {
       testimonials: {
         Row: {
           created_at: string
+          display_order: number
           id: string
           student_name: string | null
           youtube_url: string
         }
         Insert: {
           created_at?: string
+          display_order?: number
           id?: string
           student_name?: string | null
           youtube_url: string
         }
         Update: {
           created_at?: string
+          display_order?: number
           id?: string
           student_name?: string | null
           youtube_url?: string
@@ -200,6 +212,42 @@ export type Database = {
           rank?: string
           subject?: string
           university?: string | null
+        }
+        Relationships: []
+      }
+      universities: {
+        Row: {
+          active: boolean
+          created_at: string
+          display_order: number
+          estimated_cutoff: string | null
+          id: string
+          name: string
+          seats_info: string | null
+          streams: string
+          tag: string
+        }
+        Insert: {
+          active?: boolean
+          created_at?: string
+          display_order?: number
+          estimated_cutoff?: string | null
+          id?: string
+          name: string
+          seats_info?: string | null
+          streams: string
+          tag?: string
+        }
+        Update: {
+          active?: boolean
+          created_at?: string
+          display_order?: number
+          estimated_cutoff?: string | null
+          id?: string
+          name?: string
+          seats_info?: string | null
+          streams?: string
+          tag?: string
         }
         Relationships: []
       }
