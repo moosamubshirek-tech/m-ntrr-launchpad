@@ -123,16 +123,16 @@
 
   /* Cartoon button style */
   .btn-cartoon {
-    @apply font-bold border-[3px] border-foreground transition-all;
-    box-shadow: 4px 4px 0px hsl(var(--foreground));
+    @apply font-bold border-[2px] border-foreground transition-all;
+    box-shadow: 3px 3px 0px hsl(var(--foreground) / 0.85);
   }
   .btn-cartoon:hover {
-    box-shadow: 2px 2px 0px hsl(var(--foreground));
+    box-shadow: 1px 1px 0px hsl(var(--foreground) / 0.85);
     transform: translate(2px, 2px);
   }
   .btn-cartoon:active {
-    box-shadow: 0px 0px 0px hsl(var(--foreground));
-    transform: translate(4px, 4px);
+    box-shadow: 0px 0px 0px hsl(var(--foreground) / 0.85);
+    transform: translate(3px, 3px);
   }
 
   /* Squiggly underline */
@@ -152,13 +152,15 @@
 
   /* Sticky note tilt */
   .card-tilt-left {
-    transform: rotate(-1.5deg);
+    transform: rotate(-0.75deg);
+    transition: transform 0.3s ease;
   }
   .card-tilt-left:hover {
     transform: rotate(0deg) translateY(-4px);
   }
   .card-tilt-right {
-    transform: rotate(1.5deg);
+    transform: rotate(0.75deg);
+    transition: transform 0.3s ease;
   }
   .card-tilt-right:hover {
     transform: rotate(0deg) translateY(-4px);
@@ -216,15 +218,15 @@
 .blob-indigo {
   position: absolute;
   border-radius: 50% 40% 60% 50%;
-  background: hsl(var(--indigo) / 0.08);
-  filter: blur(60px);
+  background: hsl(var(--indigo) / 0.06);
+  filter: blur(70px);
   pointer-events: none;
 }
 .blob-rose {
   position: absolute;
   border-radius: 40% 60% 50% 50%;
-  background: hsl(var(--rose) / 0.08);
-  filter: blur(60px);
+  background: hsl(var(--rose) / 0.06);
+  filter: blur(70px);
   pointer-events: none;
 }
 
