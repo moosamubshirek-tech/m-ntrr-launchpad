@@ -16,14 +16,13 @@ export default function UniversitySection() {
   const [universities, setUniversities] = useState<Uni[]>([]);
 
   useEffect(() => {
-    // @ts-expect-error universities table not yet in generated types
     supabase
       .from("universities")
       .select("*")
       .eq("active", true)
       .order("display_order")
-      .then(({ data }: { data: Uni[] | null }) => {
-        if (data) setUniversities(data);
+      .then(({ data }) => {
+        if (data) setUniversities(data as Uni[]);
       });
   }, []);
 
