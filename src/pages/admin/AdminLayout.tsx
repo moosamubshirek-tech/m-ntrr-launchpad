@@ -27,7 +27,10 @@ import {
   Settings as SettingsIcon,
   CalendarDays,
   LogOut,
+<<<<<<< HEAD
   PlayCircle,
+=======
+>>>>>>> ed843df3e1ad1e1710a571fbbf28d860abddf8af
 } from "lucide-react";
 
 const items = [
@@ -39,7 +42,10 @@ const items = [
   { title: "Leads", url: "/admin/dashboard/leads", icon: Users },
   { title: "Universities", url: "/admin/dashboard/universities", icon: Building2 },
   { title: "Class Schedule", url: "/admin/dashboard/schedule", icon: CalendarDays },
+<<<<<<< HEAD
   { title: "Demo & Mocks", url: "/admin/dashboard/demo-mocks", icon: PlayCircle },
+=======
+>>>>>>> ed843df3e1ad1e1710a571fbbf28d860abddf8af
   { title: "Settings", url: "/admin/dashboard/settings", icon: SettingsIcon },
 ];
 

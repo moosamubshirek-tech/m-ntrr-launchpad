@@ -21,7 +21,10 @@ import LeadsAdmin from "./pages/admin/LeadsAdmin";
 import UniversitiesAdmin from "./pages/admin/UniversitiesAdmin";
 import ScheduleAdmin from "./pages/admin/ScheduleAdmin";
 import SettingsAdmin from "./pages/admin/SettingsAdmin";
+<<<<<<< HEAD
 import DemoMocksAdmin from "./pages/admin/DemoMocksAdmin";
+=======
+>>>>>>> ed843df3e1ad1e1710a571fbbf28d860abddf8af
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -51,7 +54,10 @@ const App = () => (
             <Route path="leads" element={<LeadsAdmin />} />
             <Route path="universities" element={<UniversitiesAdmin />} />
             <Route path="schedule" element={<ScheduleAdmin />} />
+<<<<<<< HEAD
             <Route path="demo-mocks" element={<DemoMocksAdmin />} />
+=======
+>>>>>>> ed843df3e1ad1e1710a571fbbf28d860abddf8af
             <Route path="settings" element={<SettingsAdmin />} />
           </Route>
           <Route path="*" element={<NotFound />} />

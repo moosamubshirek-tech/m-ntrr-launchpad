@@ -8,8 +8,13 @@ import { useSetting } from "@/hooks/useSettings";
 
 const subjects: Record<string, string[]> = {
   Science: ["Physics", "Chemistry", "Biology", "Mathematics", "Computer Science"],
+<<<<<<< HEAD
   Commerce: ["Accountancy", "Business Studies", "Economics", "Mathematics"],
   Humanities: ["History", "Political Science", "Sociology", "Psychology"],
+=======
+  Commerce: ["Accountancy", "Business Studies", "Economics", "Mathematics", "Entrepreneurship"],
+  Humanities: ["History", "Political Science", "Geography", "Sociology", "Psychology", "Philosophy"],
+>>>>>>> ed843df3e1ad1e1710a571fbbf28d860abddf8af
 };
 
 export default function CoursesPage() {
