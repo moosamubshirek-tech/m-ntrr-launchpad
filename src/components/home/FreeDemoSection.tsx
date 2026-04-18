@@ -1,8 +1,13 @@
 import ScrollReveal from "@/components/ScrollReveal";
 import { Play, FileText } from "lucide-react";
 import WavyDivider from "@/components/WavyDivider";
+import { useSetting, normalizePhone, youtubeUrl } from "@/hooks/useSettings";
 
 export default function FreeDemoSection() {
+  const phone = useSetting("phone");
+  const yt = useSetting("youtube");
+  const wa = normalizePhone(phone).wa;
+  const ytLink = youtubeUrl(yt);
   return (
     <section id="free-demo" className="py-20 bg-background relative">
       <div className="section-number">04</div>
