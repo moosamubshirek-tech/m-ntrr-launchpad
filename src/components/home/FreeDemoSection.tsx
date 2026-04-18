@@ -1,8 +1,13 @@
 import ScrollReveal from "@/components/ScrollReveal";
 import { Play, FileText } from "lucide-react";
 import WavyDivider from "@/components/WavyDivider";
+import { useSetting, normalizePhone, youtubeUrl } from "@/hooks/useSettings";
 
 export default function FreeDemoSection() {
+  const phone = useSetting("phone");
+  const yt = useSetting("youtube");
+  const wa = normalizePhone(phone).wa;
+  const ytLink = youtubeUrl(yt);
   return (
     <section id="free-demo" className="py-20 bg-background relative">
       <div className="section-number">04</div>
@@ -31,7 +36,7 @@ export default function FreeDemoSection() {
                 Watch a full live session — see how we teach CUET subjects with clarity and exam focus before you commit.
               </p>
               <a
-                href="https://youtube.com/@mentrrlearning"
+                href={ytLink}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block bg-primary text-primary-foreground px-6 py-3 rounded-full font-bold btn-cartoon hover:bg-indigo-light transition-colors"
@@ -56,7 +61,7 @@ export default function FreeDemoSection() {
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <a
-                  href="https://wa.me/917909228688?text=Hi%2C%20please%20share%20the%20free%20CUET%20mock%20test"
+                  href={`${wa}?text=Hi%2C%20please%20share%20the%20free%20CUET%20mock%20test`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-accent text-accent-foreground px-5 py-2.5 rounded-full font-bold btn-cartoon hover:bg-rose-light transition-colors text-sm"
@@ -64,7 +69,7 @@ export default function FreeDemoSection() {
                   CUET Mock →
                 </a>
                 <a
-                  href="https://wa.me/917909228688?text=Hi%2C%20please%20share%20the%20free%20NCET%20mock%20test"
+                  href={`${wa}?text=Hi%2C%20please%20share%20the%20free%20NCET%20mock%20test`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-primary text-primary-foreground px-5 py-2.5 rounded-full font-bold btn-cartoon hover:bg-indigo-light transition-colors text-sm"

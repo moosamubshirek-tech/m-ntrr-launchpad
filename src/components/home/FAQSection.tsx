@@ -26,7 +26,7 @@ const faqs = [
   },
   {
     q: "Is there a refund policy?",
-    a: "Please contact us directly at 7909 228 688 for refund-related queries.",
+    a: "Please contact us directly for refund-related queries.",
   },
   {
     q: "How do I enroll?",

@@ -4,10 +4,13 @@ import ScrollReveal from "@/components/ScrollReveal";
 import type { Tables } from "@/integrations/supabase/types";
 import WavyDivider from "@/components/WavyDivider";
 import { Lock, MessageCircle } from "lucide-react";
+import { useSetting, normalizePhone } from "@/hooks/useSettings";
 
 const streams = ["Science", "Commerce", "Humanities", "General"];
 
 export default function SchedulePage() {
+  const phone = useSetting("phone");
+  const wa = normalizePhone(phone).wa;
   const [schedule, setSchedule] = useState<Tables<"schedule">[]>([]);
   const [activeStream, setActiveStream] = useState("Science");
   const [authChecked, setAuthChecked] = useState(false);
@@ -53,7 +56,7 @@ export default function SchedulePage() {
             This page is for enrolled students only. Contact us on WhatsApp to learn more about our batches.
           </p>
           <a
-            href="https://wa.me/917909228688"
+            href={wa}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-[#25D366] text-white px-6 py-3 rounded-full font-bold btn-cartoon hover:opacity-90"
