@@ -4,8 +4,12 @@ import { supabase } from "@/integrations/supabase/client";
 import { Phone, MapPin, MessageCircle } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
 import WavyDivider from "@/components/WavyDivider";
+import { useSettings, normalizePhone } from "@/hooks/useSettings";
 
 export default function ContactPage() {
+  const settings = useSettings();
+  const phone = normalizePhone(settings.phone);
+  const address = settings.address;
   const [form, setForm] = useState({ name: "", email: "", phone: "", batch_interest: "CUET", message: "" });
   const [loading, setLoading] = useState(false);
 
@@ -55,15 +59,15 @@ export default function ContactPage() {
                 <div>
                   <h3 className="font-bold text-lg mb-4">Contact Details</h3>
                   <div className="space-y-4">
-                    <a href="tel:+917909228688" className="flex items-center gap-3 text-muted-foreground hover:text-accent transition-colors">
-                      <Phone size={18} className="text-accent" /> 7909 228 688
+                    <a href={phone.tel} className="flex items-center gap-3 text-muted-foreground hover:text-accent transition-colors">
+                      <Phone size={18} className="text-accent" /> {phone.display}
                     </a>
                     <div className="flex items-start gap-3 text-muted-foreground">
                       <MapPin size={18} className="text-accent mt-0.5 shrink-0" />
-                      Nas Arcade, Kurial Lane, Cherooty Rd, Mananchira, Kozhikode, Kerala 673001
+                      {address}
                     </div>
                     <a
-                      href="https://wa.me/917909228688"
+                      href={phone.wa}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center gap-3 text-muted-foreground hover:text-accent transition-colors"

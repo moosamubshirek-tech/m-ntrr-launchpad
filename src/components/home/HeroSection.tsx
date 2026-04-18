@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import WavyDivider from "@/components/WavyDivider";
@@ -6,8 +6,12 @@ import { useSetting } from "@/hooks/useSettings";
 
 const floatingIcons = ["📚", "✏️", "⭐", "🎓", "🔬", "📐", "🧪", "🌟", "📖", "🎯"];
 
-function CountdownTimer() {
-  const target = new Date("2026-05-11T00:00:00+05:30").getTime();
+function CountdownTimer({ examDate }: { examDate: string }) {
+  const target = useMemo(() => {
+    const d = examDate || "2026-05-11";
+    const t = new Date(`${d}T00:00:00+05:30`).getTime();
+    return Number.isFinite(t) ? t : new Date("2026-05-11T00:00:00+05:30").getTime();
+  }, [examDate]);
   const [diff, setDiff] = useState(target - Date.now());
 
   useEffect(() => {
@@ -44,6 +48,7 @@ function CountdownTimer() {
 
 export default function HeroSection() {
   const enrollLink = useSetting("enrollment_link");
+  const examDate = useSetting("exam_date");
 
   const scrollToDemo = () => {
     document.getElementById("free-demo")?.scrollIntoView({ behavior: "smooth" });
@@ -150,7 +155,7 @@ export default function HeroSection() {
           <p className="text-foreground/50 text-xs mb-3 font-medium tracking-wider uppercase">
             CUET 2026 Exam Countdown
           </p>
-          <CountdownTimer />
+          <CountdownTimer examDate={examDate} />
         </motion.div>
       </div>
 

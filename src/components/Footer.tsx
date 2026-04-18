@@ -1,9 +1,16 @@
 import { Phone, MapPin, Globe, Instagram, Youtube } from "lucide-react";
 import { Link } from "react-router-dom";
-import { useSetting } from "@/hooks/useSettings";
+import { useSetting, useSettings, normalizePhone, instagramUrl, youtubeUrl, websiteUrl } from "@/hooks/useSettings";
 
 export default function Footer() {
-  const enrollLink = useSetting("enrollment_link");
+  const settings = useSettings();
+  const enrollLink = settings.enrollment_link;
+  const phone = normalizePhone(settings.phone);
+  const igHandle = settings.instagram || "";
+  const ytHandle = settings.youtube || "";
+  const site = settings.website || "";
+  const tagline = settings.tagline || "Prepare the mêntrr. way!";
+  const address = settings.address || "";
 
   return (
     <footer className="bg-indigo text-primary-foreground/80 pt-16 pb-8">
@@ -15,7 +22,7 @@ export default function Footer() {
               <span className="text-rose text-2xl font-black">.</span>
             </Link>
             <p className="text-sm leading-relaxed">
-              Kerala's most result-driven CUET & NCET coaching platform. Prepare the mêntrr. way!
+              Kerala's most result-driven CUET & NCET coaching platform. {tagline}
             </p>
           </div>
 
@@ -32,28 +39,36 @@ export default function Footer() {
           <div>
             <h4 className="font-bold text-primary-foreground mb-4">Contact</h4>
             <div className="flex flex-col gap-3 text-sm">
-              <a href="tel:+917909228688" className="flex items-center gap-2 hover:text-rose transition-colors">
-                <Phone size={14} /> 7909 228 688
+              <a href={phone.tel} className="flex items-center gap-2 hover:text-rose transition-colors">
+                <Phone size={14} /> {phone.display}
               </a>
-              <div className="flex items-start gap-2">
-                <MapPin size={14} className="mt-0.5 shrink-0" />
-                <span>Nas Arcade, Kurial Lane, Cherooty Rd, Mananchira, Kozhikode, Kerala 673001</span>
-              </div>
-              <a href="https://www.mentrr.in" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-rose transition-colors">
-                <Globe size={14} /> www.mentrr.in
-              </a>
+              {address && (
+                <div className="flex items-start gap-2">
+                  <MapPin size={14} className="mt-0.5 shrink-0" />
+                  <span>{address}</span>
+                </div>
+              )}
+              {site && (
+                <a href={websiteUrl(site)} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-rose transition-colors">
+                  <Globe size={14} /> {site}
+                </a>
+              )}
             </div>
           </div>
 
           <div>
             <h4 className="font-bold text-primary-foreground mb-4">Follow Us</h4>
             <div className="flex flex-col gap-3 text-sm">
-              <a href="https://instagram.com/mentrr_learning" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-rose transition-colors">
-                <Instagram size={14} /> @mentrr_learning
-              </a>
-              <a href="https://youtube.com/@mentrrlearning" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-rose transition-colors">
-                <Youtube size={14} /> @mentrrlearning
-              </a>
+              {igHandle && (
+                <a href={instagramUrl(igHandle)} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-rose transition-colors">
+                  <Instagram size={14} /> {igHandle}
+                </a>
+              )}
+              {ytHandle && (
+                <a href={youtubeUrl(ytHandle)} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-rose transition-colors">
+                  <Youtube size={14} /> {ytHandle}
+                </a>
+              )}
             </div>
             <a
               href={enrollLink}
