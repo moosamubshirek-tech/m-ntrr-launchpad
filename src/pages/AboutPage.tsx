@@ -26,7 +26,7 @@ export default function AboutPage() {
       {/* Stats */}
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8 max-w-3xl mx-auto">
             <AnimatedCounter end={100} suffix="+" label="Admissions" />
             <AnimatedCounter end={2} label="AIR 1s" />
             <AnimatedCounter end={500} suffix="+" label="Students Mentored" />
@@ -49,7 +49,7 @@ export default function AboutPage() {
               { icon: Lightbulb, title: "Smart Prep", desc: "Focus on high-yield topics, PYQ patterns, and exam-day strategies." },
             ].map((item, i) => (
               <ScrollReveal key={i} delay={i * 0.1}>
-                <div className={`bg-background border-t-[3px] border-primary rounded-3xl p-6 text-center ${i % 2 === 0 ? 'card-tilt-left' : 'card-tilt-right'}`} style={{ boxShadow: '4px 4px 0px hsl(var(--foreground) / 0.08)' }}>
+                <div className={`bg-background border-t-[3px] border-primary rounded-3xl p-5 sm:p-6 text-center ${i % 2 === 0 ? 'card-tilt-left' : 'card-tilt-right'}`} style={{ boxShadow: '4px 4px 0px hsl(var(--foreground) / 0.08)' }}>
                   <item.icon className="mx-auto mb-3 text-accent" size={32} />
                   <h3 className="font-bold text-foreground mb-2">{item.title}</h3>
                   <p className="text-muted-foreground text-sm">{item.desc}</p>
