@@ -159,9 +159,6 @@ export default function UniversityMatcher() {
                         <div className="min-w-0 flex-1">
                           <h4 className="font-bold text-sm">{u.name}</h4>
                           <p className="text-muted-foreground text-xs mt-0.5">{u.desc}</p>
-                          <p className="text-[11px] text-muted-foreground mt-1">
-                            Cutoff: ~{u.minScore}/800
-                          </p>
                         </div>
                         <span className={`shrink-0 text-[11px] font-bold px-2.5 py-1 rounded-full ${badge.color}`}>
                           {badge.label}
