@@ -141,7 +141,7 @@ export default function HeroSection() {
           </a>
           <button
             onClick={scrollToDemo}
-            className="w-full sm:w-auto text-center border-2 border-foreground/20 bg-background/50 text-foreground px-8 py-3.5 rounded-full text-base font-bold hover:bg-background transition-all"
+            className="w-full sm:w-auto text-center border-2 border-foreground/20 bg-background text-foreground px-8 py-3.5 rounded-full text-base font-bold hover:bg-background/80 transition-all"
           >
             Watch Free Demo Class
           </button>

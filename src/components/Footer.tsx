@@ -28,18 +28,18 @@ export default function Footer() {
 
           <div>
             <h4 className="font-bold text-primary-foreground mb-4">Quick Links</h4>
-            <div className="flex flex-col gap-2 text-sm">
-              <Link to="/about" className="hover:text-rose transition-colors">About</Link>
-              <Link to="/courses" className="hover:text-rose transition-colors">Courses</Link>
-              <Link to="/results" className="hover:text-rose transition-colors">Results</Link>
-              <Link to="/contact" className="hover:text-rose transition-colors">Contact</Link>
+            <div className="flex flex-col gap-1 text-sm">
+              <Link to="/about" className="hover:text-rose transition-colors py-1 block">About</Link>
+              <Link to="/courses" className="hover:text-rose transition-colors py-1 block">Courses</Link>
+              <Link to="/results" className="hover:text-rose transition-colors py-1 block">Results</Link>
+              <Link to="/contact" className="hover:text-rose transition-colors py-1 block">Contact</Link>
             </div>
           </div>
 
           <div>
             <h4 className="font-bold text-primary-foreground mb-4">Contact</h4>
-            <div className="flex flex-col gap-3 text-sm">
-              <a href={phone.tel} className="flex items-center gap-2 hover:text-rose transition-colors">
+            <div className="flex flex-col gap-1 text-sm">
+              <a href={phone.tel} className="flex items-center gap-2 hover:text-rose transition-colors py-1">
                 <Phone size={14} /> {phone.display}
               </a>
               {address && (
@@ -54,14 +54,14 @@ export default function Footer() {
 
           <div>
             <h4 className="font-bold text-primary-foreground mb-4">Follow Us</h4>
-            <div className="flex flex-col gap-3 text-sm">
+            <div className="flex flex-col gap-1 text-sm">
               {igHandle && (
-                <a href={instagramUrl(igHandle)} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-rose transition-colors">
+                <a href={instagramUrl(igHandle)} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-rose transition-colors py-1">
                   <Instagram size={14} /> {igHandle}
                 </a>
               )}
               {ytHandle && (
-                <a href={youtubeUrl(ytHandle)} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-rose transition-colors">
+                <a href={youtubeUrl(ytHandle)} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-rose transition-colors py-1">
                   <Youtube size={14} /> {ytHandle}
                 </a>
               )}

@@ -58,12 +58,12 @@ export default function AboutCUETSection() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6">
           {stats.map((s, i) => (
             <ScrollReveal key={`${tab}-${i}`} delay={i * 0.1}>
-              <div className={`bg-card border-l-[3px] border-primary rounded-3xl p-6 text-center hover:shadow-lg transition-all duration-300 ${i % 2 === 0 ? 'card-tilt-left' : 'card-tilt-right'}`}>
-                <s.icon className="mx-auto mb-3 text-primary" size={32} />
-                <div className="text-2xl sm:text-3xl font-black text-foreground">
+              <div className={`bg-card border-l-[3px] border-primary rounded-3xl p-4 sm:p-6 text-center hover:shadow-lg transition-all duration-300 ${i % 2 === 0 ? 'card-tilt-left' : 'card-tilt-right'}`}>
+                <s.icon className="mx-auto mb-2 sm:mb-3 text-primary" size={24} />
+                <div className="text-xl sm:text-3xl font-black text-foreground">
                   {s.end}{s.suffix}
                 </div>
-                <div className="text-xs sm:text-sm text-muted-foreground mt-1 font-medium">
+                <div className="text-[10px] sm:text-sm text-muted-foreground mt-1 font-medium leading-tight">
                   {s.label}
                 </div>
               </div>

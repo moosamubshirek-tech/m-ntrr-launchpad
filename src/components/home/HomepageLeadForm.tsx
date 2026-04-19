@@ -61,7 +61,7 @@ export default function HomepageLeadForm() {
                   required
                   value={form.name}
                   onChange={(e) => setForm({ ...form, name: e.target.value })}
-                  className="w-full border-2 border-border rounded-2xl px-4 py-3 text-sm bg-background focus:border-primary focus:outline-none"
+                  className="w-full border-2 border-border rounded-2xl px-4 py-3.5 text-base bg-background focus:border-primary focus:outline-none"
                 />
                 <input
                   type="tel"
@@ -69,12 +69,12 @@ export default function HomepageLeadForm() {
                   required
                   value={form.phone}
                   onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                  className="w-full border-2 border-border rounded-2xl px-4 py-3 text-sm bg-background focus:border-primary focus:outline-none"
+                  className="w-full border-2 border-border rounded-2xl px-4 py-3.5 text-base bg-background focus:border-primary focus:outline-none"
                 />
                 <select
                   value={form.batch_interest}
                   onChange={(e) => setForm({ ...form, batch_interest: e.target.value })}
-                  className="w-full border-2 border-border rounded-2xl px-4 py-3 text-sm bg-background focus:border-primary focus:outline-none"
+                  className="w-full border-2 border-border rounded-2xl px-4 py-3.5 text-base bg-background focus:border-primary focus:outline-none"
                 >
                   <option value="CUET">CUET</option>
                   <option value="NCET">NCET</option>

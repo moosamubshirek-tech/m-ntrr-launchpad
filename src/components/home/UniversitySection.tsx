@@ -39,11 +39,11 @@ export default function UniversitySection() {
           </p>
         </ScrollReveal>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
           {universities.map((u, i) => (
             <ScrollReveal key={u.id} delay={(i % 4) * 0.05}>
               <div
-                className="bg-card border-l-[3px] border-primary rounded-2xl p-5 hover:-translate-y-1 transition-all h-full"
+                className="bg-card border-l-[3px] border-primary rounded-2xl p-4 sm:p-5 hover:-translate-y-1 transition-all h-full"
                 style={{ boxShadow: '3px 3px 0px hsl(var(--foreground) / 0.06)' }}
               >
                 <h3 className="font-bold text-foreground text-base leading-tight mb-2">
