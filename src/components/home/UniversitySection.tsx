@@ -58,11 +58,6 @@ export default function UniversitySection() {
                 {u.seats_info && (
                   <p className="text-muted-foreground text-xs mt-1">{u.seats_info}</p>
                 )}
-                {u.estimated_cutoff && (
-                  <p className="text-accent font-bold text-sm mt-3">
-                    Cutoff: {u.estimated_cutoff}
-                  </p>
-                )}
               </div>
             </ScrollReveal>
           ))}
