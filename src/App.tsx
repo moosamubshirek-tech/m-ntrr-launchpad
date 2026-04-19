@@ -42,6 +42,7 @@ const App = () => (
             <Route path="/contact" element={<ContactPage />} />
           </Route>
           <Route path="/admin" element={<AdminLogin />} />
+          <Route path="/adminlogin" element={<AdminLogin />} />
           <Route path="/admin/dashboard" element={<AdminLayout />}>
             <Route index element={<DashboardHome />} />
             <Route path="announcements" element={<AnnouncementsAdmin />} />
