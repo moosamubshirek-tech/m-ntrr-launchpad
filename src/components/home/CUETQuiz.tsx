@@ -147,12 +147,12 @@ export default function CUETQuiz() {
                 transition={{ duration: 0.3 }}
               >
                 <h3 className="text-lg font-bold mb-5">{questions[step].q}</h3>
-                <div className="grid grid-cols-2 gap-3">
+                <div className="grid grid-cols-1 xs:grid-cols-2 gap-2.5">
                   {questions[step].options.map((opt, idx) => (
                     <button
                       key={idx}
                       onClick={() => handleAnswer(idx)}
-                      className="text-left px-4 py-3 rounded-2xl border-2 border-border hover:border-primary hover:bg-primary/5 transition-all text-sm font-medium btn-cartoon bg-background"
+                      className="text-left px-4 py-3.5 rounded-2xl border-2 border-border hover:border-primary hover:bg-primary/5 transition-all text-sm font-medium btn-cartoon bg-background min-h-[52px] flex items-center"
                     >
                       {opt}
                     </button>

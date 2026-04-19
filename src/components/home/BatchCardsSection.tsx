@@ -42,8 +42,8 @@ export default function BatchCardsSection() {
 
             return (
               <ScrollReveal key={batch.id} delay={i * 0.15}>
-                <div className={`relative bg-background border-t-[4px] border-primary rounded-3xl p-8 hover:-translate-y-2 transition-all duration-300 group ${i % 2 === 0 ? 'card-tilt-left' : 'card-tilt-right'}`} style={{ boxShadow: '5px 5px 0px hsl(var(--foreground) / 0.08)' }}>
-                  <div className="absolute -top-3 right-6 ribbon-badge text-xs">
+                <div className={`relative bg-background border-t-[4px] border-primary rounded-3xl p-5 sm:p-8 hover:-translate-y-2 transition-all duration-300 group ${i % 2 === 0 ? 'card-tilt-left' : 'card-tilt-right'}`} style={{ boxShadow: '5px 5px 0px hsl(var(--foreground) / 0.08)' }}>
+                  <div className="absolute -top-3 right-4 sm:right-6 ribbon-badge text-xs">
                     <Flame size={12} className="inline mr-1" /> Seats Filling Fast 🔥
                   </div>
 
