@@ -55,7 +55,7 @@ export default function AboutCUETSection() {
           ))}
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6">
           {stats.map((s, i) => (
             <ScrollReveal key={`${tab}-${i}`} delay={i * 0.1}>
               <div className={`bg-card border-l-[3px] border-primary rounded-3xl p-6 text-center hover:shadow-lg transition-all duration-300 ${i % 2 === 0 ? 'card-tilt-left' : 'card-tilt-right'}`}>

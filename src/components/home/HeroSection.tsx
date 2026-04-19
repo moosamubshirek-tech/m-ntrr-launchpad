@@ -26,18 +26,18 @@ function CountdownTimer({ examDate }: { examDate: string }) {
   const secs = Math.floor((d % 60000) / 1000);
 
   return (
-    <div className="flex gap-3 sm:gap-4 justify-center">
+    <div className="flex gap-2 sm:gap-4 justify-center">
       {[
         { val: days, label: "Days" },
         { val: hours, label: "Hours" },
         { val: mins, label: "Mins" },
         { val: secs, label: "Secs" },
       ].map(({ val, label }) => (
-        <div key={label} className="bg-background/80 backdrop-blur-sm rounded-3xl px-3 sm:px-5 py-3 text-center min-w-[60px] border-2 border-foreground/10" style={{ boxShadow: '3px 3px 0px hsl(var(--foreground) / 0.1)' }}>
-          <div className="text-2xl sm:text-3xl font-black text-accent tabular-nums">
+        <div key={label} className="bg-background/80 backdrop-blur-sm rounded-2xl px-2 sm:px-5 py-2.5 sm:py-3 text-center min-w-[56px] sm:min-w-[72px] border-2 border-foreground/10" style={{ boxShadow: '3px 3px 0px hsl(var(--foreground) / 0.1)' }}>
+          <div className="text-xl sm:text-3xl font-black text-accent tabular-nums">
             {String(val).padStart(2, "0")}
           </div>
-          <div className="text-[10px] sm:text-xs text-foreground/60 font-medium mt-0.5">
+          <div className="text-[9px] sm:text-xs text-foreground/60 font-medium mt-0.5">
             {label}
           </div>
         </div>
@@ -65,7 +65,7 @@ export default function HeroSection() {
       {floatingIcons.map((icon, i) => (
         <motion.span
           key={i}
-          className="absolute text-3xl sm:text-4xl pointer-events-none select-none opacity-20"
+          className="absolute text-2xl sm:text-4xl pointer-events-none select-none opacity-10 sm:opacity-20"
           style={{
             left: `${(i * 17 + 5) % 90}%`,
             top: `${(i * 23 + 10) % 85}%`,
@@ -91,7 +91,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
-          className="text-4xl sm:text-5xl md:text-7xl font-black text-foreground leading-tight mb-4"
+          className="text-[clamp(2rem,8vw,5rem)] md:text-7xl font-black text-foreground leading-tight mb-4 px-2"
         >
           Kerala's <span className="squiggly-underline">No.1</span>{" "}
           <span className="text-gradient">CUET Platform.</span>
@@ -110,7 +110,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.35 }}
-          className="grid grid-cols-3 gap-6 max-w-md mx-auto mb-10"
+          className="flex gap-4 sm:gap-6 justify-center max-w-xs sm:max-w-md mx-auto mb-10 flex-wrap"
         >
           <AnimatedCounter end={100} suffix="+" label="Admissions" />
           <AnimatedCounter end={2} label="AIR 1s" />
@@ -121,13 +121,13 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.5 }}
-          className="flex flex-col sm:flex-row flex-wrap gap-4 justify-center mb-12"
+          className="flex flex-col sm:flex-row gap-3 justify-center mb-12 px-4 sm:px-0 w-full max-w-sm sm:max-w-none mx-auto"
         >
           <a
             href={enrollLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-accent text-accent-foreground px-8 py-3.5 rounded-full text-base font-bold btn-cartoon hover:bg-rose-light transition-all"
+            className="w-full sm:w-auto text-center bg-accent text-accent-foreground px-8 py-3.5 rounded-full text-base font-bold btn-cartoon hover:bg-rose-light transition-all"
           >
             Join CUET Batch
           </a>
@@ -135,13 +135,13 @@ export default function HeroSection() {
             href={enrollLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-primary text-primary-foreground px-8 py-3.5 rounded-full text-base font-bold btn-cartoon hover:bg-indigo-light transition-all"
+            className="w-full sm:w-auto text-center bg-primary text-primary-foreground px-8 py-3.5 rounded-full text-base font-bold btn-cartoon hover:bg-indigo-light transition-all"
           >
             Join NCET Batch
           </a>
           <button
             onClick={scrollToDemo}
-            className="border-2 border-foreground/20 bg-background/50 text-foreground px-8 py-3.5 rounded-full text-base font-bold hover:bg-background transition-all"
+            className="w-full sm:w-auto text-center border-2 border-foreground/20 bg-background/50 text-foreground px-8 py-3.5 rounded-full text-base font-bold hover:bg-background transition-all"
           >
             Watch Free Demo Class
           </button>

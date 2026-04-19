@@ -69,7 +69,7 @@ export default function Navbar() {
 
         {/* Mobile toggle */}
         <button
-          className="md:hidden text-primary-foreground"
+          className="md:hidden text-primary-foreground p-2 -mr-2 rounded-lg"
           onClick={() => setMobileOpen(!mobileOpen)}
         >
           {mobileOpen ? <X size={24} /> : <Menu size={24} />}
@@ -85,12 +85,12 @@ export default function Navbar() {
             exit={{ opacity: 0, height: 0 }}
             className="md:hidden bg-indigo/98 backdrop-blur-md border-t border-primary-foreground/10"
           >
-            <div className="container mx-auto px-4 py-4 flex flex-col gap-3">
+            <div className="container mx-auto px-4 py-4 pb-6 flex flex-col gap-1">
               {navLinks.map((l) => (
                 <Link
                   key={l.path}
                   to={l.path}
-                  className={`text-sm font-semibold py-2 ${
+                  className={`text-sm font-semibold py-3 border-b border-primary-foreground/10 block w-full ${
                     location.pathname === l.path
                       ? "text-primary-foreground"
                       : "text-primary-foreground/70"
@@ -103,7 +103,7 @@ export default function Navbar() {
                 href={enrollLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-rose text-primary-foreground px-5 py-2.5 rounded-full text-sm font-bold text-center"
+                className="bg-rose text-primary-foreground px-5 py-3.5 rounded-full text-sm font-bold text-center block w-full mt-2"
               >
                 Enroll Now
               </a>
