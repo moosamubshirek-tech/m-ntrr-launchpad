@@ -42,7 +42,7 @@ export default function CoursesPage() {
 
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
-          <div className="flex items-center justify-center gap-4 mb-12">
+          <div className="flex items-center justify-center gap-3 sm:gap-4 mb-12 flex-wrap">
             <span className={`text-sm font-semibold ${!showEarly ? "text-foreground" : "text-muted-foreground"}`}>Original Price</span>
             <button
               onClick={() => setShowEarly(!showEarly)}
@@ -56,7 +56,7 @@ export default function CoursesPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-16">
             {batches.map((batch, i) => (
               <ScrollReveal key={batch.id} delay={i * 0.1}>
-                <div className={`bg-card border-t-[4px] border-primary rounded-3xl p-8 hover:shadow-lg transition-all relative ${i % 2 === 0 ? 'card-tilt-left' : 'card-tilt-right'}`} style={{ boxShadow: '5px 5px 0px hsl(var(--foreground) / 0.08)' }}>
+                <div className={`bg-card border-t-[4px] border-primary rounded-3xl p-5 sm:p-8 hover:shadow-lg transition-all relative ${i % 2 === 0 ? 'card-tilt-left' : 'card-tilt-right'}`} style={{ boxShadow: '5px 5px 0px hsl(var(--foreground) / 0.08)' }}>
                   <div className="absolute -top-3 right-6 ribbon-badge text-xs">
                     <Flame size={12} className="inline mr-1" /> Seats Filling Fast
                   </div>
