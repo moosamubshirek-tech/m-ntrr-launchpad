@@ -28,22 +28,22 @@ export default function AdminLogin() {
   };
 
   return (
-    <div className="min-h-screen bg-navy flex items-center justify-center px-4">
+    <div className="min-h-screen bg-background flex items-center justify-center px-4 py-10">
       <div className="w-full max-w-sm">
         <div className="text-center mb-8">
-          <h1 className="text-2xl font-black text-primary-foreground">
-            mêntrr<span className="text-coral">.</span> Admin
+          <h1 className="text-2xl font-black text-foreground">
+            mêntrr<span className="text-accent">.</span> Admin
           </h1>
-          <p className="text-primary-foreground/50 text-sm mt-2">Sign in to manage your platform</p>
+          <p className="text-muted-foreground text-sm mt-2">Sign in to manage your platform</p>
         </div>
-        <form onSubmit={handleLogin} className="bg-navy-light border border-primary-foreground/10 rounded-2xl p-6 space-y-4">
+        <form onSubmit={handleLogin} className="bg-card border border-border rounded-2xl p-6 space-y-4 shadow-sm">
           <input
             type="email"
             placeholder="Email"
             required
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="w-full bg-navy border border-primary-foreground/20 rounded-xl px-4 py-3 text-primary-foreground text-sm placeholder:text-primary-foreground/30 focus:border-coral focus:outline-none"
+            className="w-full bg-background border border-input rounded-xl px-4 py-3 text-foreground text-sm placeholder:text-muted-foreground focus:border-ring focus:outline-none"
           />
           <input
             type="password"
@@ -51,12 +51,12 @@ export default function AdminLogin() {
             required
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="w-full bg-navy border border-primary-foreground/20 rounded-xl px-4 py-3 text-primary-foreground text-sm placeholder:text-primary-foreground/30 focus:border-coral focus:outline-none"
+            className="w-full bg-background border border-input rounded-xl px-4 py-3 text-foreground text-sm placeholder:text-muted-foreground focus:border-ring focus:outline-none"
           />
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-coral text-accent-foreground py-3 rounded-full font-bold hover:bg-coral-light transition-colors disabled:opacity-50"
+            className="w-full bg-accent text-accent-foreground py-3 rounded-full font-bold transition-opacity hover:opacity-90 disabled:opacity-50"
           >
             {loading ? "Signing in..." : "Sign In"}
           </button>
