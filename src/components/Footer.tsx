@@ -48,11 +48,7 @@ export default function Footer() {
                   <span>{address}</span>
                 </div>
               )}
-              {site && (
-                <a href={websiteUrl(site)} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-rose transition-colors">
-                  <Globe size={14} /> {site}
-                </a>
-              )}
+              
             </div>
           </div>
 
