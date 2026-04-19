@@ -102,26 +102,26 @@ export default function ContactPage() {
                   required
                   value={form.name}
                   onChange={(e) => setForm({ ...form, name: e.target.value })}
-                  className="w-full border-2 border-border rounded-2xl px-4 py-3 text-sm bg-background focus:border-primary focus:outline-none transition-colors"
+                  className="w-full border-2 border-border rounded-2xl px-4 py-3.5 text-base bg-background focus:border-primary focus:outline-none transition-colors"
                 />
                 <input
                   type="email"
                   placeholder="Email"
                   value={form.email}
                   onChange={(e) => setForm({ ...form, email: e.target.value })}
-                  className="w-full border-2 border-border rounded-2xl px-4 py-3 text-sm bg-background focus:border-primary focus:outline-none transition-colors"
+                  className="w-full border-2 border-border rounded-2xl px-4 py-3.5 text-base bg-background focus:border-primary focus:outline-none transition-colors"
                 />
                 <input
                   type="tel"
                   placeholder="Phone"
                   value={form.phone}
                   onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                  className="w-full border-2 border-border rounded-2xl px-4 py-3 text-sm bg-background focus:border-primary focus:outline-none transition-colors"
+                  className="w-full border-2 border-border rounded-2xl px-4 py-3.5 text-base bg-background focus:border-primary focus:outline-none transition-colors"
                 />
                 <select
                   value={form.batch_interest}
                   onChange={(e) => setForm({ ...form, batch_interest: e.target.value })}
-                  className="w-full border-2 border-border rounded-2xl px-4 py-3 text-sm bg-background focus:border-primary focus:outline-none transition-colors"
+                  className="w-full border-2 border-border rounded-2xl px-4 py-3.5 text-base bg-background focus:border-primary focus:outline-none transition-colors"
                 >
                   <option value="CUET">CUET UG</option>
                   <option value="NCET">NCET</option>
@@ -130,7 +130,7 @@ export default function ContactPage() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full bg-accent text-accent-foreground py-3 rounded-full font-bold btn-cartoon hover:bg-rose-light transition-colors disabled:opacity-50"
+                  className="w-full bg-accent text-accent-foreground py-4 rounded-full font-bold btn-cartoon hover:bg-rose-light transition-colors disabled:opacity-50 text-base"
                 >
                   {loading ? "Sending..." : "Send Inquiry"}
                 </button>
