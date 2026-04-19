@@ -5,37 +5,27 @@
 @tailwind utilities;
 
 @layer base {
-  :root {
+  :root, html.light {
     --background: 0 0% 100%;
     --foreground: 235 50% 20%;
-
     --card: 240 100% 97%;
     --card-foreground: 235 50% 20%;
-
     --popover: 0 0% 100%;
     --popover-foreground: 235 50% 20%;
-
     --primary: 239 84% 67%;
     --primary-foreground: 0 0% 100%;
-
     --secondary: 240 100% 97%;
     --secondary-foreground: 235 50% 20%;
-
     --muted: 240 100% 97%;
     --muted-foreground: 235 20% 50%;
-
     --accent: 347 77% 60%;
     --accent-foreground: 0 0% 100%;
-
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
-
     --border: 240 20% 90%;
     --input: 240 20% 90%;
     --ring: 239 84% 67%;
-
     --radius: 1.25rem;
-
     --indigo: 239 84% 67%;
     --indigo-light: 239 84% 75%;
     --indigo-dark: 239 84% 55%;
@@ -44,7 +34,6 @@
     --rose-dark: 347 77% 50%;
     --lavender: 240 100% 97%;
     --blush: 347 100% 97%;
-
     --sidebar-background: 239 84% 30%;
     --sidebar-foreground: 0 0% 95%;
     --sidebar-primary: 347 77% 60%;
@@ -138,7 +127,6 @@
     border-color: hsl(var(--rose));
   }
 
-  /* Cartoon button style */
   .btn-cartoon {
     @apply font-bold border-[2px] border-foreground transition-all;
     box-shadow: 3px 3px 0px hsl(var(--foreground) / 0.85);
@@ -152,14 +140,12 @@
     transform: translate(3px, 3px);
   }
 
-  /* Squiggly underline */
   .squiggly-underline {
     text-decoration: underline wavy hsl(var(--rose));
     text-underline-offset: 6px;
     text-decoration-thickness: 3px;
   }
 
-  /* Section number watermark */
   .section-number {
     @apply absolute font-black leading-none pointer-events-none select-none overflow-hidden;
     font-size: clamp(80px, 20vw, 180px);
@@ -169,7 +155,6 @@
     max-width: 100%;
   }
 
-  /* Sticky note tilt */
   .card-tilt-left {
     transform: rotate(-0.75deg);
     transition: transform 0.3s ease;
@@ -185,7 +170,6 @@
     transform: rotate(0deg) translateY(-4px);
   }
 
-  /* Floating icon animation */
   @keyframes float-drift {
     0%, 100% { transform: translateY(0px) rotate(0deg); }
     25% { transform: translateY(-15px) rotate(5deg); }
@@ -196,7 +180,6 @@
     animation: float-drift 8s ease-in-out infinite;
   }
 
-  /* Ribbon badge */
   .ribbon-badge {
     @apply relative inline-block px-4 py-1 font-bold text-sm;
     background: hsl(var(--rose));
@@ -204,7 +187,6 @@
     clip-path: polygon(0 0, 100% 0, 95% 50%, 100% 100%, 0 100%, 5% 50%);
   }
 
-  /* Ticker animation */
   @keyframes ticker-scroll {
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); }
@@ -214,7 +196,6 @@
   }
 }
 
-/* Wavy section divider */
 .wavy-divider {
   position: relative;
 }
@@ -233,7 +214,6 @@
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 40'%3E%3Cpath fill='%23FFF0F3' d='M0,20 C240,40 480,0 720,20 C960,40 1200,0 1440,20 L1440,40 L0,40 Z'/%3E%3C/svg%3E");
 }
 
-/* Blob shapes */
 .blob-indigo {
   position: absolute;
   border-radius: 50% 40% 60% 50%;
@@ -249,7 +229,6 @@
   pointer-events: none;
 }
 
-/* Scrollbar styling */
 ::-webkit-scrollbar {
   width: 8px;
 }
